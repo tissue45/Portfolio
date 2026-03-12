@@ -155,6 +155,7 @@ const ProjectActions = ({
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [activeTab, setActiveTab] = useState<TabType>('overview')
+  const publicBase = import.meta.env.BASE_URL
 
   const projects: Project[] = [
     {
@@ -328,7 +329,7 @@ const Projects = () => {
       icon: <Database className="w-8 h-8" />,
       featured: true,
       media: {
-        images: ['/test-placeholder.svg']
+        images: [`${publicBase}test-placeholder.svg`]
       }
     },
     {
@@ -388,7 +389,7 @@ const Projects = () => {
       icon: <Brain className="w-8 h-8" />,
       featured: true,
       media: {
-        images: ['/test-placeholder.svg']
+        images: [`${publicBase}test-placeholder.svg`]
       }
     },
     {
@@ -449,7 +450,7 @@ const Projects = () => {
       icon: <BookOpen className="w-8 h-8" />,
       featured: true,
       media: {
-        images: ['/test-placeholder.svg']
+        images: [`${publicBase}test-placeholder.svg`]
       }
     },
     {
@@ -507,7 +508,17 @@ const Projects = () => {
       status: 'LIVE',
       color: 'from-indigo-500 to-purple-600',
       icon: <TrendingUp className="w-8 h-8" />,
-      featured: true
+      featured: true,
+      media: {
+        images: [
+          `${publicBase}Powerking/Powerking1.jpg`,
+          `${publicBase}Powerking/Powerking2.jpg`,
+          `${publicBase}Powerking/Powerking3.jpg`,
+          `${publicBase}Powerking/Powerking4.jpg`,
+          `${publicBase}Powerking/Powerking5.jpg`,
+          `${publicBase}Powerking/Powerking6.jpg`
+        ]
+      }
     }
   ]
 
@@ -546,6 +557,27 @@ const Projects = () => {
         case 'overview':
           return (
             <div className="space-y-6">
+              {project.media?.images && project.media.images.length > 0 && (
+                <div>
+                  <h5 className="font-semibold text-apple-dark mb-3">프로젝트 이미지</h5>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {project.media.images.map((image, index) => (
+                      <div
+                        key={`${project.id}-overview-image-${index}`}
+                        className="overflow-hidden rounded-2xl border border-sky-100 dark:border-apple-gray-700 bg-white dark:bg-apple-gray-800"
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} 개요 이미지 ${index + 1}`}
+                          className="w-full h-52 object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div>
                 <h4 className="text-xl font-semibold text-apple-dark mb-4 flex items-center">
                   <Layers className="mr-2" size={20} />

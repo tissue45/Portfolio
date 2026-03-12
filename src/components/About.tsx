@@ -58,7 +58,7 @@ const About = () => {
                 className="relative"
               >
                 <img
-                  src="/profile.png"
+                  src={`${import.meta.env.BASE_URL}profile.png`}
                   alt="곽승훈 프로필 사진"
                   className="w-64 h-[21rem] rounded-3xl object-cover shadow-2xl"
                 />
