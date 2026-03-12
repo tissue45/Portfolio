@@ -9,7 +9,7 @@ import Projects from './components/Projects'
 import { initGA } from './utils/analytics'
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,

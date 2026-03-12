@@ -6,6 +6,8 @@ import {
   Database,
   Brain,
   Smartphone,
+  ChevronLeft,
+  ChevronRight,
   ChevronDown,
   Award,
   TrendingUp,
@@ -155,6 +157,7 @@ const ProjectActions = ({
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [activeTab, setActiveTab] = useState<TabType>('overview')
+  const [overviewImageIndex, setOverviewImageIndex] = useState(0)
   const publicBase = import.meta.env.BASE_URL
 
   const projects: Project[] = [
@@ -327,10 +330,7 @@ const Projects = () => {
       status: 'LIVE',
       color: 'from-blue-500 to-indigo-600',
       icon: <Database className="w-8 h-8" />,
-      featured: true,
-      media: {
-        images: [`${publicBase}test-placeholder.svg`]
-      }
+      featured: true
     },
     {
       id: 4,
@@ -387,10 +387,7 @@ const Projects = () => {
       status: 'LIVE',
       color: 'from-emerald-500 to-teal-600',
       icon: <Brain className="w-8 h-8" />,
-      featured: true,
-      media: {
-        images: [`${publicBase}test-placeholder.svg`]
-      }
+      featured: true
     },
     {
       id: 5,
@@ -450,7 +447,14 @@ const Projects = () => {
       icon: <BookOpen className="w-8 h-8" />,
       featured: true,
       media: {
-        images: [`${publicBase}test-placeholder.svg`]
+        images: [
+          `${publicBase}Yutjabja/Yutjabja1.png`,
+          `${publicBase}Yutjabja/Yutjabja2.png`,
+          `${publicBase}Yutjabja/Yutjabja3.png`,
+          `${publicBase}Yutjabja/Yutjabja4.png`,
+          `${publicBase}Yutjabja/Yutjabja5.png`,
+          `${publicBase}Yutjabja/Yutjabja6.png`
+        ]
       }
     },
     {
@@ -537,6 +541,8 @@ const Projects = () => {
   // 콜백 메모이제이션
   const handleProjectSelect = useCallback((project: Project) => {
     setSelectedProject(project)
+    setActiveTab('overview')
+    setOverviewImageIndex(0)
     trackProjectClick(project.title, 'view_details')
   }, [])
 
@@ -555,25 +561,61 @@ const Projects = () => {
     const renderTabContent = () => {
       switch (activeTab) {
         case 'overview':
+          const overviewImages = project.media?.images ?? []
+          const hasOverviewImages = overviewImages.length > 0
+          const safeIndex = hasOverviewImages ? overviewImageIndex % overviewImages.length : 0
+
+          const goToNextImage = () => {
+            if (!hasOverviewImages) return
+            setOverviewImageIndex((prev) => (prev + 1) % overviewImages.length)
+          }
+
+          const goToPrevImage = () => {
+            if (!hasOverviewImages) return
+            setOverviewImageIndex((prev) => (prev - 1 + overviewImages.length) % overviewImages.length)
+          }
+
           return (
             <div className="space-y-6">
-              {project.media?.images && project.media.images.length > 0 && (
+              {hasOverviewImages && (
                 <div>
                   <h5 className="font-semibold text-apple-dark mb-3">프로젝트 이미지</h5>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {project.media.images.map((image, index) => (
-                      <div
-                        key={`${project.id}-overview-image-${index}`}
-                        className="overflow-hidden rounded-2xl border border-sky-100 dark:border-apple-gray-700 bg-white dark:bg-apple-gray-800"
-                      >
+                  <div>
+                    <div className="relative w-full overflow-hidden rounded-2xl border border-sky-100 dark:border-apple-gray-700 bg-apple-gray-50 dark:bg-apple-gray-900">
+                      <div className="relative w-full h-64 md:h-[26rem]">
                         <img
-                          src={image}
-                          alt={`${project.title} 개요 이미지 ${index + 1}`}
-                          className="w-full h-52 object-cover"
+                          src={overviewImages[safeIndex]}
+                          alt=""
+                          aria-hidden="true"
+                          className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-35"
                           loading="lazy"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/15" />
+                        <img
+                          src={overviewImages[safeIndex]}
+                          alt={`${project.title} 개요 이미지 ${safeIndex + 1}`}
+                          className="relative z-10 w-full h-full object-contain"
+                          loading="lazy"
+                        />
+
+                        <button
+                          type="button"
+                          onClick={goToPrevImage}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/45 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
+                          aria-label="이전 이미지"
+                        >
+                          <ChevronLeft size={20} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={goToNextImage}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/45 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
+                          aria-label="다음 이미지"
+                        >
+                          <ChevronRight size={20} />
+                        </button>
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -936,7 +978,7 @@ const Projects = () => {
                         transition={{ duration: 0.4, delay: techIndex * 0.05 }}
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.05 }}
-                        className="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm font-medium border border-sky-100"
+                        className="px-3 py-1 bg-apple-gray-600 text-white rounded-full text-sm font-medium border border-apple-gray-500"
                       >
                         {tech}
                       </motion.span>

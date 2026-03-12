@@ -9,8 +9,58 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" className="min-h-screen pt-24 md:pt-28 relative overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-blue-50/40">
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-100/40 via-transparent to-blue-100/40" />
+    <section
+      id="hero"
+      className="min-h-screen pt-24 md:pt-28 relative overflow-hidden bg-gradient-to-b from-sky-50/90 via-sky-50 to-blue-50/80 dark:from-sky-900 dark:via-sky-800 dark:to-blue-900"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-200/45 via-transparent to-blue-200/40 dark:from-sky-800/45 dark:via-transparent dark:to-blue-900/55" />
+      <div className="pointer-events-none absolute inset-0">
+        <motion.div
+          className="absolute top-[10%] left-[7%] w-12 h-12 rounded-full bg-sky-300/34 dark:bg-sky-300/20 blur-[2px]"
+          animate={{ y: [0, -28, 0], x: [0, 14, 0] }}
+          transition={{ duration: 4.4, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute top-[20%] right-[10%] w-14 h-14 rounded-full bg-blue-300/30 dark:bg-blue-300/18 blur-[2px]"
+          animate={{ y: [0, -24, 0], x: [0, -16, 0] }}
+          transition={{ duration: 4.9, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+        />
+        <motion.div
+          className="absolute bottom-[16%] left-[12%] w-10 h-10 rounded-full bg-cyan-300/32 dark:bg-cyan-300/18 blur-[2px]"
+          animate={{ y: [0, -26, 0], x: [0, 12, 0] }}
+          transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut', delay: 0.9 }}
+        />
+        <motion.div
+          className="absolute bottom-[30%] right-[18%] w-12 h-12 rounded-full bg-sky-200/30 dark:bg-sky-200/16 blur-[2px]"
+          animate={{ y: [0, -22, 0], x: [0, -12, 0] }}
+          transition={{ duration: 4.6, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
+        />
+        <motion.div
+          className="absolute top-[36%] left-[18%] w-9 h-9 rounded-full bg-sky-300/32 dark:bg-sky-300/18 blur-[1px]"
+          animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+          transition={{ duration: 3.9, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
+        />
+        <motion.div
+          className="absolute top-[52%] right-[8%] w-8 h-8 rounded-full bg-cyan-300/34 dark:bg-cyan-300/20 blur-[1px]"
+          animate={{ y: [0, -18, 0], x: [0, -11, 0] }}
+          transition={{ duration: 3.7, repeat: Infinity, ease: 'easeInOut', delay: 1.1 }}
+        />
+        <motion.div
+          className="absolute bottom-[10%] left-[30%] w-11 h-11 rounded-full bg-blue-300/30 dark:bg-blue-300/16 blur-[2px]"
+          animate={{ y: [0, -23, 0], x: [0, 13, 0] }}
+          transition={{ duration: 4.1, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        />
+        <motion.div
+          className="absolute top-[14%] right-[28%] w-7 h-7 rounded-full bg-sky-200/36 dark:bg-sky-200/22 blur-[1px]"
+          animate={{ y: [0, -17, 0], x: [0, -9, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1.4 }}
+        />
+        <motion.div
+          className="absolute bottom-[38%] left-[42%] w-8 h-8 rounded-full bg-cyan-200/34 dark:bg-cyan-200/20 blur-[1px]"
+          animate={{ y: [0, -16, 0], x: [0, 8, 0] }}
+          transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut', delay: 1.7 }}
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 items-center min-h-[calc(100vh-7rem)]">
@@ -20,11 +70,11 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="inline-flex items-center rounded-full border border-sky-200 bg-white px-4 py-1 text-sm text-sky-500 mb-5 shadow-sm">
-              Portfolio 2026
-            </div>
             <h1 className="text-4xl md:text-6xl font-bold text-apple-dark mb-4">
-              개발자 <span className="text-gradient-apple">곽승훈</span>
+              개발자{' '}
+              <span className="bg-gradient-to-r from-sky-500 to-cyan-400 dark:from-sky-300 dark:to-cyan-200 bg-clip-text text-transparent">
+                곽승훈
+              </span>
             </h1>
             <div className="text-xl md:text-2xl text-apple-gray-700 font-medium h-16 mb-6">
               <TypeAnimation
@@ -41,7 +91,7 @@ const Hero = () => {
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="text-gradient"
+                className="bg-gradient-to-r from-sky-400 to-cyan-300 dark:from-sky-200 dark:to-cyan-200 bg-clip-text text-transparent"
               />
             </div>
             <p className="text-lg text-apple-gray-700 leading-relaxed mb-8 max-w-2xl">
