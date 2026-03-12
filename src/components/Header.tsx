@@ -40,10 +40,10 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-rose-100/70 dark:border-apple-gray-700/70"
+      className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-sky-100/70 dark:border-apple-gray-700/70"
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex items-center justify-between rounded-2xl bg-white/80 dark:bg-apple-gray-800/80 border border-rose-100 dark:border-apple-gray-700 px-4 md:px-6 h-20 shadow-sm">
+        <div className="flex items-center justify-between rounded-2xl bg-white/80 dark:bg-apple-gray-800/80 border border-sky-100 dark:border-apple-gray-700 px-4 md:px-6 h-20 shadow-sm">
           {/* 로고 */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -53,14 +53,14 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
           </motion.div>
 
           {/* 데스크톱 메뉴 */}
-          <div className="hidden md:flex items-center space-x-2 bg-rose-50/70 dark:bg-apple-gray-700/60 rounded-xl px-2 py-1">
+          <div className="hidden md:flex items-center space-x-2 bg-sky-50/70 dark:bg-apple-gray-700/60 rounded-xl px-2 py-1">
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-3 py-2 rounded-lg text-sm text-apple-gray-700 dark:text-apple-gray-200 hover:bg-white dark:hover:bg-apple-gray-600 hover:text-rose-500 dark:hover:text-rose-300 transition-colors duration-200"
+                className="px-3 py-2 rounded-lg text-sm text-apple-gray-700 dark:text-apple-gray-200 hover:bg-white dark:hover:bg-apple-gray-600 hover:text-sky-500 dark:hover:text-sky-300 transition-colors duration-200"
               >
                 {item.name}
               </motion.button>
@@ -71,7 +71,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               onClick={handleDarkModeToggle}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="ml-2 p-2 rounded-full bg-white dark:bg-apple-gray-600 text-rose-500 dark:text-rose-300 hover:text-rose-600 dark:hover:text-rose-200 transition-all duration-200"
+              className="ml-2 p-2 rounded-full bg-white dark:bg-apple-gray-600 text-sky-500 dark:text-sky-300 hover:text-sky-600 dark:hover:text-sky-200 transition-all duration-200"
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
@@ -83,7 +83,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               onClick={handleDarkModeToggle}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-full bg-rose-50 dark:bg-apple-gray-800 text-rose-500 dark:text-rose-300"
+              className="p-2 rounded-full bg-sky-50 dark:bg-apple-gray-800 text-sky-500 dark:text-sky-300"
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
@@ -92,7 +92,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-full bg-rose-50 dark:bg-apple-gray-800 text-rose-500 dark:text-rose-300"
+              className="p-2 rounded-full bg-sky-50 dark:bg-apple-gray-800 text-sky-500 dark:text-sky-300"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </motion.button>
@@ -115,7 +115,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
                 whileHover={{ x: 10 }}
-                className="block w-full text-left px-4 py-2 text-apple-gray-700 dark:text-apple-gray-200 hover:text-rose-500 dark:hover:text-rose-400 transition-colors duration-200"
+                className="block w-full text-left px-4 py-2 text-apple-gray-700 dark:text-apple-gray-200 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-200"
               >
                 {item.name}
               </motion.button>

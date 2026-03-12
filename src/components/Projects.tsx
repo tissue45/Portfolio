@@ -140,7 +140,7 @@ const ProjectActions = ({
           whileTap={{ scale: 0.95 }}
           className={`${
             showViewDetails ? 'flex-1' : 'w-full'
-          } apple-button border-2 border-rose-200 text-rose-500 px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 hover:border-rose-500 hover:text-rose-600 transition-colors duration-200`}
+          } apple-button border-2 border-sky-200 text-sky-500 px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 hover:border-sky-500 hover:text-sky-600 transition-colors duration-200`}
           aria-label={`${project.title} 라이브 데모 보기`}
         >
           <ExternalLink size={20} />
@@ -210,7 +210,7 @@ const Projects = () => {
       deployUrl: 'https://tissue45.github.io/ShoppingMall/',
       githubUrl: '수정해야할 링크',
       status: 'LIVE',
-      color: 'from-pink-500 to-rose-600',
+      color: 'from-sky-500 to-blue-600',
       icon: <Smartphone className="w-8 h-8" />,
       featured: true
     },
@@ -267,7 +267,7 @@ const Projects = () => {
       deployUrl: 'https://tissue45.github.io/Rhythm-game/',
       githubUrl: '수정해야할 링크',
       status: 'LIVE',
-      color: 'from-violet-500 to-fuchsia-600',
+      color: 'from-cyan-500 to-blue-600',
       icon: <Smartphone className="w-8 h-8" />,
       featured: true
     },
@@ -381,8 +381,8 @@ const Projects = () => {
       metrics: {
         codeLines: '7,700+'
       },
-      deployUrl: '수정해야할 링크',
-      githubUrl: '수정해야할 링크',
+      deployUrl: 'https://tissue45.github.io/RaccoonGame/',
+      githubUrl: 'https://github.com/tissue45/RaccoonGame.git',
       status: 'LIVE',
       color: 'from-emerald-500 to-teal-600',
       icon: <Brain className="w-8 h-8" />,
@@ -598,7 +598,7 @@ const Projects = () => {
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-sm font-medium border border-rose-100"
+                      className="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm font-medium border border-sky-100"
                     >
                       {tech}
                     </span>
@@ -621,7 +621,7 @@ const Projects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-4 bg-white dark:bg-apple-gray-800 rounded-xl border border-rose-100 dark:border-apple-gray-700"
+                  className="p-4 bg-white dark:bg-apple-gray-800 rounded-xl border border-sky-100 dark:border-apple-gray-700"
                 >
                   <h5 className="font-semibold text-apple-dark dark:text-white mb-2 flex items-center">
                     <CheckCircle className="mr-2 text-green-500" size={16} />
@@ -648,7 +648,7 @@ const Projects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-white dark:bg-apple-gray-800 rounded-xl border border-rose-100 dark:border-apple-gray-700"
+                  className="p-6 bg-white dark:bg-apple-gray-800 rounded-xl border border-sky-100 dark:border-apple-gray-700"
                 >
                   <div className="space-y-4">
                     <div>
@@ -682,9 +682,9 @@ const Projects = () => {
                     key={key}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="text-center p-4 bg-white dark:bg-apple-gray-800 rounded-xl border border-rose-100 dark:border-apple-gray-700"
+                    className="text-center p-4 bg-white dark:bg-apple-gray-800 rounded-xl border border-sky-100 dark:border-apple-gray-700"
                   >
-                    <div className="text-2xl font-bold text-rose-500 mb-2">{value}</div>
+                    <div className="text-2xl font-bold text-sky-500 mb-2">{value}</div>
                     <div className="text-sm text-apple-gray-600 dark:text-apple-gray-300 capitalize">
                       {key.replace(/([A-Z])/g, ' $1').toLowerCase()}
                     </div>
@@ -712,11 +712,11 @@ const Projects = () => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-white dark:bg-apple-gray-900 rounded-3xl shadow-2xl border border-rose-100 dark:border-apple-gray-700 max-w-4xl w-full h-[92vh] max-h-[92vh] overflow-hidden flex flex-col"
+            className="bg-white dark:bg-apple-gray-900 rounded-3xl shadow-2xl border border-sky-100 dark:border-apple-gray-700 max-w-4xl w-full h-[92vh] max-h-[92vh] overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* 모달 헤더 */}
-            <div className="p-6 border-b border-rose-100 dark:border-apple-gray-700 shrink-0">
+            <div className="p-6 border-b border-sky-100 dark:border-apple-gray-700 shrink-0">
               <div className="flex items-start justify-between">
                 <div className="flex items-center space-x-4">
                   <div className={`p-3 rounded-xl bg-gradient-to-r ${project.color} text-white`}>
@@ -733,22 +733,22 @@ const Projects = () => {
                 </div>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-rose-50 dark:hover:bg-apple-gray-800 rounded-full transition-colors"
+                  className="p-2 hover:bg-sky-50 dark:hover:bg-apple-gray-800 rounded-full transition-colors"
                 >
                   <X size={24} className="text-apple-gray-700 dark:text-apple-gray-300" />
                 </button>
               </div>
               
               {/* 탭 네비게이션 */}
-              <div className="flex space-x-1 mt-6 bg-rose-50 dark:bg-apple-gray-800 rounded-xl p-1">
+              <div className="flex space-x-1 mt-6 bg-sky-50 dark:bg-apple-gray-800 rounded-xl p-1">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => handleTabChange(tab.id)}
                     className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                       activeTab === tab.id
-                        ? 'bg-white dark:bg-apple-gray-700 text-rose-500 shadow-sm'
-                        : 'text-apple-gray-700 dark:text-apple-gray-300 hover:text-rose-500'
+                        ? 'bg-white dark:bg-apple-gray-700 text-sky-500 shadow-sm'
+                        : 'text-apple-gray-700 dark:text-apple-gray-300 hover:text-sky-500'
                     }`}
                   >
                     {tab.icon}
@@ -764,7 +764,7 @@ const Projects = () => {
             </div>
 
             {/* 모달 푸터 */}
-            <div className="p-6 border-t border-rose-100 dark:border-apple-gray-700 bg-rose-50/40 dark:bg-apple-gray-800/60 shrink-0">
+            <div className="p-6 border-t border-sky-100 dark:border-apple-gray-700 bg-sky-50/40 dark:bg-apple-gray-800/60 shrink-0">
               <ProjectActions
                 project={project}
                 onViewDetails={() => {}}
@@ -778,7 +778,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-white via-rose-50/20 to-white dark:from-apple-gray-900 dark:via-apple-gray-900 dark:to-apple-gray-900">
+    <section id="projects" className="py-20 bg-gradient-to-b from-white via-sky-50/20 to-white dark:from-apple-gray-900 dark:via-apple-gray-900 dark:to-apple-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 섹션 헤더 */}
         <motion.div
@@ -814,7 +814,7 @@ const Projects = () => {
                 className={`relative cursor-pointer ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="relative overflow-hidden rounded-3xl shadow-xl border border-rose-100 dark:border-apple-gray-800 group">
+                <div className="relative overflow-hidden rounded-3xl shadow-xl border border-sky-100 dark:border-apple-gray-800 group">
                   {/* 상태 배지 */}
                   <div className="absolute top-4 left-4 z-10">
                     <StatusBadge status={project.status} />
@@ -845,7 +845,7 @@ const Projects = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className={`space-y-6 bg-white dark:bg-apple-gray-800 border border-rose-100 dark:border-apple-gray-700 rounded-3xl p-7 shadow-sm ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}
+                className={`space-y-6 bg-white dark:bg-apple-gray-800 border border-sky-100 dark:border-apple-gray-700 rounded-3xl p-7 shadow-sm ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}
               >
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold text-apple-dark dark:text-white mb-2">
@@ -896,7 +896,7 @@ const Projects = () => {
                     기술 스택
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, DISPLAY_LIMITS.MAIN_TECHNOLOGIES).map((tech, techIndex) => (
+                    {project.technologies.map((tech, techIndex) => (
                       <motion.span
                         key={techIndex}
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -904,16 +904,11 @@ const Projects = () => {
                         transition={{ duration: 0.4, delay: techIndex * 0.05 }}
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.05 }}
-                        className="px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-sm font-medium border border-rose-100"
+                        className="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm font-medium border border-sky-100"
                       >
                         {tech}
                       </motion.span>
                     ))}
-                    {project.technologies.length > DISPLAY_LIMITS.MAIN_TECHNOLOGIES && (
-                      <span className="px-3 py-1 bg-apple-gray-100 dark:bg-apple-gray-700 text-apple-gray-600 dark:text-apple-gray-200 rounded-full text-sm border border-apple-gray-200 dark:border-apple-gray-600">
-                        +{project.technologies.length - DISPLAY_LIMITS.MAIN_TECHNOLOGIES}
-                      </span>
-                    )}
                   </div>
                 </div>
 

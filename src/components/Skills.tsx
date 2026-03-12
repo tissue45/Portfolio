@@ -47,7 +47,7 @@ const Skills = () => {
   type Skill = typeof skillCategories[SkillCategory]['skills'][0]
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-white via-rose-50/30 to-violet-50/20 dark:from-apple-gray-900 dark:via-apple-gray-900 dark:to-apple-gray-900">
+    <section id="skills" className="py-20 bg-gradient-to-b from-white via-sky-50/30 to-blue-50/20 dark:from-apple-gray-900 dark:via-apple-gray-900 dark:to-apple-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 섹션 헤더 */}
         <motion.div
@@ -73,7 +73,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="flex justify-center mb-12"
         >
-          <div className="flex bg-white dark:bg-apple-gray-800 rounded-2xl p-1.5 shadow-sm border border-rose-100 dark:border-apple-gray-700">
+          <div className="flex bg-white dark:bg-apple-gray-800 rounded-2xl p-1.5 shadow-sm border border-sky-100 dark:border-apple-gray-700">
             {categories.map((category) => (
               <motion.button
                 key={category}
@@ -82,8 +82,8 @@ const Skills = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                   activeCategory === category
-                    ? 'bg-gradient-to-r from-rose-500 to-violet-500 text-white shadow-md'
-                    : 'text-apple-gray-700 dark:text-apple-gray-300 hover:bg-rose-50 dark:hover:bg-apple-gray-700'
+                    ? 'bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-md'
+                    : 'text-apple-gray-700 dark:text-apple-gray-300 hover:bg-sky-50 dark:hover:bg-apple-gray-700'
                 }`}
               >
 {skillCategories[category].icon}
@@ -111,7 +111,7 @@ const Skills = () => {
                 whileHover={{ y: -2 }}
                 className="
                   bg-white dark:bg-apple-gray-800
-                  border border-rose-100 dark:border-apple-gray-700
+                  border border-sky-100 dark:border-apple-gray-700
                   rounded-2xl p-5 text-center
                   shadow-sm hover:shadow-lg
                   transition-all duration-300
@@ -131,7 +131,7 @@ const Skills = () => {
                 </h3>
 
                 {/* 미니멀한 액센트 */}
-                <div className="mt-3 h-0.5 w-10 mx-auto bg-gradient-to-r from-rose-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="mt-3 h-0.5 w-10 mx-auto bg-gradient-to-r from-sky-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
@@ -145,7 +145,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="bg-gradient-to-r from-rose-50 to-violet-50 dark:from-apple-gray-800 dark:to-apple-gray-800 border border-rose-100 dark:border-apple-gray-700 rounded-3xl p-8">
+          <div className="bg-gradient-to-r from-sky-50 to-blue-50 dark:from-apple-gray-800 dark:to-apple-gray-800 border border-sky-100 dark:border-apple-gray-700 rounded-3xl p-8">
             <h3 className="text-2xl font-bold text-apple-dark dark:text-white mb-4">
               특화 분야
             </h3>

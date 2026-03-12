@@ -19,11 +19,11 @@ const Contact = () => {
       type: 'phone' as const
     },
     {
-      title: '위치',
-      value: '대한민국 의정부',
-      href: '#',
+      title: 'GitHub',
+      value: 'github.com/tissue45',
+      href: 'https://github.com/tissue45',
       description: '',
-      type: null
+      type: 'github' as const
     }
   ]
 
@@ -121,7 +121,7 @@ const Contact = () => {
                 href="mailto:astrab45@naver.com"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="apple-button w-full bg-gradient-to-r from-rose-500 to-violet-500 text-white px-6 py-3 rounded-xl font-semibold text-center block"
+                className="apple-button w-full bg-gradient-to-r from-sky-500 to-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-center block"
               >
                 메일로 문의하기
               </motion.a>
