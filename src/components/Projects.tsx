@@ -15,6 +15,7 @@ import {
   CheckCircle,
   X,
   Layers,
+  Image as ImageIcon,
   Users,
   Clock,
   Star,
@@ -550,7 +551,7 @@ const Projects = () => {
     setActiveTab(tab)
   }, [])
 
-  const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => void }) => {
+  const renderProjectModal = (project: Project, onClose: () => void) => {
     const tabs: Array<{ id: TabType; label: string; icon: React.ReactNode }> = [
       { id: 'overview', label: '개요', icon: <Layers size={16} /> },
       { id: 'achievements', label: '성과', icon: <Award size={16} /> },
@@ -579,10 +580,13 @@ const Projects = () => {
             <div className="space-y-6">
               {hasOverviewImages && (
                 <div>
-                  <h5 className="font-semibold text-apple-dark mb-3">프로젝트 이미지</h5>
+                  <h4 className="text-xl font-semibold text-apple-dark dark:text-white mb-4 flex items-center">
+                    <ImageIcon className="mr-2" size={20} />
+                    프로젝트 이미지
+                  </h4>
                   <div>
                     <div className="relative w-full overflow-hidden rounded-2xl border border-sky-100 dark:border-apple-gray-700 bg-apple-gray-50 dark:bg-apple-gray-900">
-                      <div className="relative w-full h-64 md:h-[26rem]">
+                      <div className="relative w-full h-52 md:h-[20rem]">
                         <img
                           src={overviewImages[safeIndex]}
                           alt=""
@@ -600,7 +604,10 @@ const Projects = () => {
 
                         <button
                           type="button"
-                          onClick={goToPrevImage}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            goToPrevImage()
+                          }}
                           className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/45 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
                           aria-label="이전 이미지"
                         >
@@ -608,7 +615,10 @@ const Projects = () => {
                         </button>
                         <button
                           type="button"
-                          onClick={goToNextImage}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            goToNextImage()
+                          }}
                           className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/45 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
                           aria-label="다음 이미지"
                         >
@@ -621,42 +631,42 @@ const Projects = () => {
               )}
 
               <div>
-                <h4 className="text-xl font-semibold text-apple-dark mb-4 flex items-center">
+                <h4 className="text-xl font-semibold text-apple-dark dark:text-white mb-4 flex items-center">
                   <Layers className="mr-2" size={20} />
                   프로젝트 개요
                 </h4>
-                <p className="text-apple-gray-700 leading-relaxed text-lg mb-6">
+                <p className="text-apple-gray-700 dark:text-apple-gray-300 leading-relaxed text-lg mb-6">
                   {project.description}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-3">
-                    <div className="flex items-center text-sm text-apple-gray-600">
+                    <div className="flex items-center text-sm text-apple-gray-600 dark:text-apple-gray-300">
                       <Users className="mr-2" size={16} />
                       <span className="font-medium mr-2">팀:</span>
                       <span>{project.team}</span>
                     </div>
-                    <div className="flex items-center text-sm text-apple-gray-600">
+                    <div className="flex items-center text-sm text-apple-gray-600 dark:text-apple-gray-300">
                       <Clock className="mr-2" size={16} />
                       <span className="font-medium mr-2">기간:</span>
                       <span>{project.period}</span>
                     </div>
-                    <div className="flex items-center text-sm text-apple-gray-600">
+                    <div className="flex items-center text-sm text-apple-gray-600 dark:text-apple-gray-300">
                       <Star className="mr-2" size={16} />
                       <span className="font-medium mr-2">상태:</span>
                       <span className={`px-2 py-1 rounded-full text-xs ${
-                        project.status === 'LIVE' ? 'bg-green-100 text-green-800' :
-                        project.status === 'BETA' ? 'bg-blue-100 text-blue-800' :
-                        'bg-yellow-100 text-yellow-800'
+                        project.status === 'LIVE' ? 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300' :
+                        project.status === 'BETA' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300' :
+                        'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300'
                       }`}>
                         {project.status}
                       </span>
                     </div>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-apple-dark mb-3">주요 기능</h5>
+                    <h5 className="font-semibold text-apple-dark dark:text-white mb-3">주요 기능</h5>
                     <div className="space-y-2">
                       {project.features.slice(0, DISPLAY_LIMITS.MAIN_FEATURES).map((feature, index) => (
-                        <div key={index} className="flex items-center text-sm text-apple-gray-700">
+                        <div key={index} className="flex items-center text-sm text-apple-gray-700 dark:text-apple-gray-300">
                           <CheckCircle className="mr-2 text-green-500" size={14} />
                           {feature}
                         </div>
@@ -667,12 +677,12 @@ const Projects = () => {
               </div>
               
               <div>
-                <h5 className="font-semibold text-apple-dark mb-3">기술 스택</h5>
+                <h5 className="font-semibold text-apple-dark dark:text-white mb-3">기술 스택</h5>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm font-medium border border-sky-100"
+                      className="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm font-medium border border-sky-100 dark:bg-apple-gray-800 dark:text-sky-300 dark:border-apple-gray-700"
                     >
                       {tech}
                     </span>
@@ -685,7 +695,7 @@ const Projects = () => {
         case 'achievements':
           return (
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-apple-dark mb-4 flex items-center">
+              <h4 className="text-xl font-semibold text-apple-dark dark:text-white mb-4 flex items-center">
                 <Award className="mr-2" size={20} />
                 주요 성과
               </h4>
@@ -712,7 +722,7 @@ const Projects = () => {
         case 'troubleshooting':
           return (
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-apple-dark mb-4 flex items-center">
+              <h4 className="text-xl font-semibold text-apple-dark dark:text-white mb-4 flex items-center">
                 <Bug className="mr-2" size={20} />
                 문제 해결 사례
               </h4>
@@ -746,7 +756,7 @@ const Projects = () => {
         case 'metrics':
           return (
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-apple-dark mb-4 flex items-center">
+              <h4 className="text-xl font-semibold text-apple-dark dark:text-white mb-4 flex items-center">
                 <TrendingUp className="mr-2" size={20} />
                 프로젝트 지표
               </h4>
@@ -780,7 +790,9 @@ const Projects = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-transparent flex items-center justify-center z-50 p-2 sm:p-4"
-          onClick={onClose}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) onClose()
+          }}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -1001,15 +1013,11 @@ const Projects = () => {
       </div>
 
       {/* 프로젝트 상세 모달 */}
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => {
-            setSelectedProject(null)
-            setActiveTab('overview')
-          }}
-        />
-      )}
+      {selectedProject &&
+        renderProjectModal(selectedProject, () => {
+          setSelectedProject(null)
+          setActiveTab('overview')
+        })}
     </section>
   )
 }
