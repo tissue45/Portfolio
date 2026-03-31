@@ -22,6 +22,7 @@ const Skills = () => {
       skills: [
         { name: 'Node.js', icon: '⬢' },
         { name: 'Express.js', icon: '🚂' },
+        { name: 'Spring Boot', icon: '🍃' },
         { name: 'RESTful API', icon: '🔗' },
         { name: 'PostgreSQL', icon: '🐘' },
         { name: 'Supabase', icon: '🗃️' }

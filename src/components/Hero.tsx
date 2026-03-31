@@ -133,7 +133,7 @@ const Hero = () => {
                 </div>
                 <div className="rounded-2xl bg-sky-50 dark:bg-apple-gray-700 p-4">
                   <p className="text-sm text-apple-gray-600 dark:text-apple-gray-300">주요스택</p>
-                  <p className="font-semibold text-apple-dark dark:text-white">Node.js / Express.js</p>
+                  <p className="font-semibold text-apple-dark dark:text-white">Java / PostgreSQL</p>
                 </div>
                 <div className="rounded-2xl bg-sky-50 dark:bg-apple-gray-700 p-4">
                   <p className="text-sm text-apple-gray-600 dark:text-apple-gray-300">작업스타일</p>
