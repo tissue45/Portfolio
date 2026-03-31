@@ -163,6 +163,34 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
+      id: 0,
+      title: 'AI RAG Platform - 문서 기반 질의응답',
+      subtitle: '문서 근거 기반으로 답변하는 실무형 RAG 서비스',
+      description: '문서 업로드부터 임베딩 저장, 선택 문서 범위 벡터 검색, 답변과 sources 반환까지 이어지는 RAG 흐름을 구현한 프로젝트입니다. 인증/권한, 데이터 마이그레이션, 배포 환경 이슈 대응까지 실제 운영 관점으로 정리했습니다.',
+      image: '/api/placeholder/800/500',
+      category: '웹 애플리케이션, AI/RAG',
+      period: '2026.03 - 진행중',
+      team: '개인 프로젝트',
+      technologies: ['Spring Boot', 'Java', 'PostgreSQL', 'pgvector', 'Flyway', 'Vue 3', 'TypeScript', 'JWT', 'OpenAI API', 'Docker', 'AWS ECS'],
+      features: [
+        'JWT 로그인/인가 및 보호 API 접근 제어',
+        '문서 생성/조회/삭제와 사용자 소유 문서 격리',
+        '선택 문서 기반 Top-K 벡터 검색과 답변 + sources 반환',
+        'Docker/ECS/RDS/ALB 기반 배포 흐름 구성'
+      ],
+      achievements: [],
+      troubleshooting: [],
+      metrics: {
+        codeLines: '-'
+      },
+      deployUrl: '수정해야할 링크',
+      githubUrl: 'https://github.com/tissue45/ai-rag-platform',
+      status: 'BETA',
+      color: 'from-sky-500 to-cyan-600',
+      icon: <Database className="w-8 h-8" />,
+      featured: true
+    },
+    {
       id: 1,
       title: 'Shopping Mall - 쇼핑몰 통합 솔루션',
       subtitle: '검색부터 결제까지 이어지는 커머스 경험',
@@ -529,14 +557,14 @@ const Projects = () => {
 
   // 성능 최적화: 메모이제이션
   const featuredProjects = useMemo(() => {
-    const priorityProjectTitle = '편의점 종합 솔루션'
+    const priority = (title: string): number => {
+      if (title.includes('AI RAG Platform')) return 2
+      if (title.includes('편의점 종합 솔루션')) return 1
+      return 0
+    }
     return projects
       .filter(p => p.featured)
-      .sort((a, b) => {
-        const aPriority = a.title.includes(priorityProjectTitle) ? 1 : 0
-        const bPriority = b.title.includes(priorityProjectTitle) ? 1 : 0
-        return bPriority - aPriority
-      })
+      .sort((a, b) => priority(b.title) - priority(a.title))
   }, [projects])
 
   // 콜백 메모이제이션
@@ -552,11 +580,14 @@ const Projects = () => {
   }, [])
 
   const renderProjectModal = (project: Project, onClose: () => void) => {
+    const hasAchievements = project.achievements.length > 0
+    const hasTroubleshooting = project.troubleshooting.length > 0
+    const hasMetrics = Object.values(project.metrics).some(value => Boolean(value && value !== '-'))
     const tabs: Array<{ id: TabType; label: string; icon: React.ReactNode }> = [
       { id: 'overview', label: '개요', icon: <Layers size={16} /> },
-      { id: 'achievements', label: '성과', icon: <Award size={16} /> },
-      { id: 'troubleshooting', label: '트러블슈팅', icon: <Bug size={16} /> },
-      { id: 'metrics', label: '지표', icon: <TrendingUp size={16} /> }
+      ...(hasAchievements ? [{ id: 'achievements' as TabType, label: '성과', icon: <Award size={16} /> }] : []),
+      ...(hasTroubleshooting ? [{ id: 'troubleshooting' as TabType, label: '트러블슈팅', icon: <Bug size={16} /> }] : []),
+      ...(hasMetrics ? [{ id: 'metrics' as TabType, label: '지표', icon: <TrendingUp size={16} /> }] : [])
     ]
 
     const renderTabContent = () => {
