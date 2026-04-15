@@ -183,7 +183,7 @@ const Projects = () => {
       metrics: {
         codeLines: '-'
       },
-      deployUrl: '수정해야할 링크',
+      deployUrl: 'https://tissue45.github.io/ai-rag-platform/',
       githubUrl: 'https://github.com/tissue45/ai-rag-platform',
       status: 'BETA',
       color: 'from-sky-500 to-cyan-600',
