@@ -185,7 +185,7 @@ const Projects = () => {
       },
       deployUrl: 'https://tissue45.github.io/ai-rag-platform/',
       githubUrl: 'https://github.com/tissue45/ai-rag-platform',
-      status: 'BETA',
+      status: 'LIVE',
       color: 'from-sky-500 to-cyan-600',
       icon: <Database className="w-8 h-8" />,
       featured: true
