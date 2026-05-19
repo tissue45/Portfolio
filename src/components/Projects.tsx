@@ -176,8 +176,7 @@ const Projects = () => {
         '회원가입·로그인 및 JWT 기반 API 인증·접근 제어',
         '문서 생성·목록·상세·삭제 및 사용자별 문서 격리',
         '문서 텍스트 청킹·OpenAI 임베딩 저장(인제스트)',
-        '선택 문서 범위 Top-K 벡터 검색, 답변 및 sources 반환',
-        'GitHub Pages 프론트 배포, Docker·AWS(ECS/RDS/ALB) 백엔드 운영'
+        '선택 문서 범위 Top-K 벡터 검색, 답변 및 sources 반환'
       ],
       achievements: [],
       troubleshooting: [],
