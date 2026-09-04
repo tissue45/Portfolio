@@ -163,34 +163,6 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      id: 0,
-      title: 'AI RAG Platform - 문서 기반 질의응답',
-      subtitle: '문서 근거 기반으로 답변하는 실무형 RAG 서비스',
-      description: '텍스트 문서 등록 후 청킹·임베딩을 저장하고, 선택한 문서 범위에서 벡터 검색으로 답변과 sources를 반환하는 RAG 서비스입니다. JWT 인증·문서 CRUD·Flyway 마이그레이션과 GitHub Pages·Docker·AWS 운영까지 구현했습니다.',
-      image: '/api/placeholder/800/500',
-      category: '웹 애플리케이션, AI/RAG',
-      period: '2026.03 - 진행중',
-      team: '개인 프로젝트',
-      technologies: ['Spring Boot', 'PostgreSQL', 'pgvector', 'Flyway', 'Vue 3', 'TypeScript', 'Pinia', 'OpenAI API', 'Docker', 'AWS ECS'],
-      features: [
-        '회원가입·로그인 및 JWT 기반 API 인증·접근 제어',
-        '문서 생성·목록·상세·삭제 및 사용자별 문서 격리',
-        '문서 텍스트 청킹·OpenAI 임베딩 저장(인제스트)',
-        '선택 문서 범위 Top-K 벡터 검색, 답변 및 sources 반환'
-      ],
-      achievements: [],
-      troubleshooting: [],
-      metrics: {
-        codeLines: '-'
-      },
-      deployUrl: 'https://tissue45.github.io/ai-rag-platform/',
-      githubUrl: 'https://github.com/tissue45/ai-rag-platform',
-      status: 'LIVE',
-      color: 'from-sky-500 to-cyan-600',
-      icon: <Database className="w-8 h-8" />,
-      featured: true
-    },
-    {
       id: 1,
       title: 'Shopping Mall - 쇼핑몰 통합 솔루션',
       subtitle: '검색부터 결제까지 이어지는 커머스 경험',
@@ -302,63 +274,6 @@ const Projects = () => {
       status: 'LIVE',
       color: 'from-cyan-500 to-blue-600',
       icon: <Smartphone className="w-8 h-8" />,
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'Convi - 편의점 종합 솔루션',
-      subtitle: '디지털 혁신으로 편의점을 재정의하다',
-      description: '완전한 상용 수준의 편의점 통합 관리 플랫폼입니다. 고객, 점주, 본사가 실시간으로 연결되어 주문부터 재고 관리, 매출 분석까지 모든 비즈니스 프로세스를 자동화합니다.',
-      image: '/api/placeholder/800/500',
-      category: '웹 애플리케이션',
-      period: '2026.01 - 2026.02',
-      team: '팀 프로젝트',
-      technologies: ['React 19', 'TypeScript', 'TailwindCSS', '토스페이먼츠', 'PostgreSQL', 'RLS', 'Render'],
-      features: [
-        '실시간 주문 및 재고 관리 시스템',
-        '토스페이먼츠 결제 연동',
-        '주문/재고/프로모션/쿠폰 중심 데이터베이스 설계',
-        '본사-점주-고객 3자 실시간 통합 관리',
-      ],
-      achievements: [
-        {
-          title: '핵심 업무 흐름 구현',
-          description: '주문, 재고, 결제, 권한 제어 등 편의점 운영 핵심 기능을 구현'
-        },
-        {
-          title: '데이터베이스 스키마 설계',
-          description: '확장 가능한 데이터 구조와 관계를 설계해 운영 기능을 뒷받침'
-        },
-        {
-          title: '실시간 데이터 동기화 구현',
-          description: '실시간 구독 기반 주문 및 재고 관리 시스템'
-        }
-      ],
-      troubleshooting: [
-        {
-          problem: 'RLS(Row Level Security) 정책 설정 복잡성',
-          solution: 'RLS 정책을 사용자 역할별로 세분화하여 구현. 각 테이블마다 적절한 권한 설정으로 데이터 보안 강화',
-          impact: '역할별 데이터 접근 제어 기준을 정리해 운영 안정성을 높임'
-        },
-        {
-          problem: '실시간 데이터 동기화 성능 이슈',
-          solution: '실시간 구독 기반 선택적 업데이트 시스템 구현. 필요한 데이터만 갱신하도록 최적화',
-          impact: '실시간 업데이트 속도 개선'
-        },
-        {
-          problem: '토스페이먼츠 결제 연동 중 상태 관리 복잡성',
-          solution: '결제 컴포넌트 상태(isProcessing/showTossWidget)와 성공/실패 라우트를 분리해 결제 흐름을 정리',
-          impact: '결제 단계 이탈을 줄이고 처리 흐름의 추적성을 개선'
-        }
-      ],
-      metrics: {
-        codeLines: '46,700+'
-      },
-      deployUrl: 'https://tissue45.github.io/Convi/',
-      githubUrl: '수정해야할 링크',
-      status: 'LIVE',
-      color: 'from-blue-500 to-indigo-600',
-      icon: <Database className="w-8 h-8" />,
       featured: true
     },
     {
