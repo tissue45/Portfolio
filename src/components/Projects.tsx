@@ -3,7 +3,6 @@ import { useState, useMemo, useCallback } from 'react'
 import {
   ExternalLink,
   Play,
-  Database,
   Brain,
   Smartphone,
   ChevronLeft,
