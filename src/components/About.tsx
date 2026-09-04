@@ -88,7 +88,6 @@ const About = () => {
               </p>
               
               <p>
-                <strong className="text-apple-blue">편의점 종합 솔루션</strong>부터
                 <strong className="text-apple-blue"> 쇼핑몰 통합 플랫폼</strong>,
                 <strong className="text-apple-blue"> 리듬게임 프로젝트</strong>,
                 <strong className="text-apple-blue"> 라쿤게임</strong>,
